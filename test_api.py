@@ -2,8 +2,8 @@ import requests
 import json
 import sys
 
-# Backend endpoint
-url = "http://127.0.0.1:5000/api/evaluate-risk"
+# Backend endpoint (via secure Pinggy tunnel)
+url = "https://hezkg-103-158-43-42.run.pinggy-free.link/api/evaluate-risk"
 
 # Mock orders matching the page.tsx configuration
 mock_orders = [
