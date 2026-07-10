@@ -120,6 +120,10 @@ const DecryptText: React.FC<{ value: string; delay?: number }> = ({ value, delay
 
 // Background live telemetry scrolling feed (Pill structure with fading transitions)
 const TelemetryLogFeed = () => {
+  const gatewayInfo = typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_URL 
+    ? `API Gateway: ${process.env.NEXT_PUBLIC_API_URL.replace(/^https?:\/\//, "")}`
+    : "API Gateway: 127.0.0.1:5000";
+
   const logPool = [
     "AWS Route Cache: ONLINE",
     "Regressor Weights: LOADED",
@@ -130,7 +134,7 @@ const TelemetryLogFeed = () => {
     "GenAI Safety Filter: ON",
     "Integrity Matrix: 100.0%",
     "Model Confidence: MAE 0.98",
-    "API Gateway: 127.0.0.1:5000"
+    gatewayInfo
   ];
 
   const [index, setIndex] = useState(0);
@@ -210,8 +214,9 @@ export default function Home() {
     };
 
     try {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000";
       const response = await axios.post<EvaluationResult>(
-        "http://127.0.0.1:5000/api/evaluate-risk",
+        `${backendUrl}/api/evaluate-risk`,
         payload,
         {
           headers: {
