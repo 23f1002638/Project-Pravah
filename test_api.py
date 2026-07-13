@@ -3,7 +3,7 @@ import json
 import sys
 
 # Backend endpoint (via secure Pinggy tunnel)
-url = "https://hezkg-103-158-43-42.run.pinggy-free.link/api/evaluate-risk"
+url = "https://pravah-backend-wcp6.onrender.com/api/evaluate-risk"
 
 # Mock orders matching the page.tsx configuration
 mock_orders = [

@@ -16,7 +16,6 @@ app = Flask(__name__)
 # Configure CORS to allow cross-origin communication with Next.js frontend
 CORS(app)
 
-#Global Initialization
 # On application startup, load the three .joblib binary pipeline artifacts into memory globally
 try:
     preprocessor = joblib.load('drishti_preprocessor.joblib')
