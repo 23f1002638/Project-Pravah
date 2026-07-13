@@ -551,7 +551,10 @@ export default function Home() {
                     <span>{error}</span>
                   </div>
                   <p className="text-xs text-zinc-400">
-                    Could not communicate with the analytics microservice at <code className="text-zinc-200">{process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000"}</code>. Verify that the server is running and CORS allows incoming browser requests.
+                    Could not communicate with the analytics microservice at <code className="text-zinc-200">{process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000"}</code>.
+                  </p>
+                  <p className="text-xs text-zinc-500 border-t border-zinc-900 pt-2 mt-1">
+                    <span className="text-amber-500 font-semibold">COLD START NOTICE:</span> If the backend was inactive, Render spun it down. Cold starts take ~50 seconds to complete. Please wait a minute and click the order row again to retry the request.
                   </p>
                 </div>
               )}
